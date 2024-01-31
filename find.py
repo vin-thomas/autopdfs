@@ -60,7 +60,7 @@ def from_bse(urls, id = [], pdf_list = []):
     print("bse here")
     c = 0
     for url in urls:
-        if c < 3:
+        if c < 7:
             try:
                 # Open the webpage
                 driver.get(url)
@@ -93,7 +93,7 @@ def from_screener(urls, id = [], pdf_list = []):
     print("screener here")
     c = 0
     for url in urls:
-        if c < 3:
+        if c < 7:
             try:
                 # Open the webpage
                 driver.get(url)
@@ -191,26 +191,26 @@ def combine_check():
 
 import requests
 import re
-import pdftotext
+# import pdftotext
 
-def text_extraction(path):
-  with open(path, "rb") as f:
-      pdf = pdftotext.PDF(f)
-  text = []
-  # All pages
-  for txt in pdf:
-    text.append(txt)
-  return text
+# def text_extraction(path):
+#   with open(path, "rb") as f:
+#       pdf = pdftotext.PDF(f)
+#   text = []
+#   # All pages
+#   for txt in pdf:
+#     text.append(txt)
+#   return text
 
-def filemk(furl):
-  headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-  res = requests.get(furl, headers=headers)
-  with open("transcript.pdf", "wb+") as pdf:
-    pdf.write(res.content)
-    pdf.close()
-  texts = text_extraction("transcript.pdf")
-  infostr = ''.join(texts[0:2])
-  return infostr
+# def filemk(furl):
+#   headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+#   res = requests.get(furl, headers=headers)
+#   with open("transcript.pdf", "wb+") as pdf:
+#     pdf.write(res.content)
+#     pdf.close()
+#   texts = text_extraction("transcript.pdf")
+#   infostr = ''.join(texts[0:2])
+#   return infostr
 
 
 '''
